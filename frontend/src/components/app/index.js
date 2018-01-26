@@ -6,7 +6,7 @@ import Nav from '../nav';
 import PostList from '../post/list';
 import PostNew from '../post/new';
 import PostDetails from '../post/details';
-import { getAll } from '../utils/ReadableAPI';
+import { getAll } from '../../utils/ReadableAPI';
 
 
 class App extends Component {
