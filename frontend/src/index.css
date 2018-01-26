@@ -1,5 +1,66 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  color: #32323c;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1em;
+  font-weight: lighter;
+}
+
+.container-nav {
+  margin-bottom: 20px;
+}
+
+.spacing {
+  margin: 20px 0;
+}
+.header {
+  margin-bottom: 20px;
+}
+
+.footer {
+  color: #8f8f9b;
+  background-color: #32323c;
+}
+
+.footer .fa {
+  font-size: 30px;
+}
+
+.post-title {
+  display: block;
+  font-size: 1.6em;
+}
+
+.post-description {
+  font-size: 0.8em;
+  color: #8f8f9b;
+}
+
+.post-author {
+  color: #fa471e;
+  font-style: italic;
+}
+
+.post-icon-comments {
+  font-size: 2em;
+  color: #fa471e;
+}
+
+.post-total-comments {
+  font-size: 0.7em;
+  font-weight: bold;
+}
+
+.logo {
+  font-size: 50px;
+  color: #fa471e;
+}
+
+.nav-item a {
+  color: #8f8f9b;
+}
+
+.nav-item a.active {
+  color: #fa471e;
 }
