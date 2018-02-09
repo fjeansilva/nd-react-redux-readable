@@ -1,16 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import NavItem from './NavItem';
 
-const Nav = () => (
+const Nav = ({ items }) => (
   <nav className="nav">
     <ul className="nav__menu">
-      <li><a href="/" className="menu__item menu__item--active">Todos</a></li>
-      <li><a href="/" className="menu__item">React</a></li>
-      <li><a href="/" className="menu__item">Redux</a></li>
-      <li><a href="/" className="menu__item">React Native</a></li>
-      <li><a href="/" className="menu__item">JavaScript</a></li>
-      <li><a href="/" className="menu__item">Udacity</a></li>
+      {items.map(i => <NavItem key={i.path} title={i.name} url={i.path} />)}
     </ul>
   </nav>
 );
+
+Nav.propTypes = {
+  items: PropTypes.array.isRequired,
+};
 
 export default Nav;
