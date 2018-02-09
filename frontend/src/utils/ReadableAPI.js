@@ -1,12 +1,16 @@
+/* global localStorage */
+import fetch from 'cross-fetch';
+
 const api = 'http://localhost:3001/';
 
-let token = localStorage.token;
+let { token } = localStorage;
 
-if(!token)
+if (!token) {
   token = localStorage.token = Math.random().toString(36).sub(-8);
+}
 
 const headers = {
-  'Authorization': token
+  Authorization: token,
 };
 
 export const getAll = () => 
