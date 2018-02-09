@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../header';
 import MenuActions from '../header/MenuActions';
-import Nav from '../nav';
+import NavContainer from '../nav/NavContainer';
 import Post from '../post';
 import Footer from '../footer';
 
@@ -9,7 +9,7 @@ const App = () => (
   <div className="wrapper">
     <Header />
     <MenuActions />
-    <Nav />
+    <NavContainer />
     <Post />
     <Footer />
   </div>
