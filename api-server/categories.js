@@ -7,7 +7,7 @@ const defaultData = {
   categories: [
       {
         name: 'all',
-        path: 'all'
+        path: ''
       },
       {
         name: 'react',
