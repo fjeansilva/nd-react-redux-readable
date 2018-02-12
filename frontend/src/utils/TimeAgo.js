@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import TimeAgo from 'timeago-react';
 
-const TimeAgo = ({ children }) => (
-  <p>Enviado 6 horas atrás por {children}</p>
+const Timer = ({ children, date }) => (
+  <p>Submmited <TimeAgo datetime={date} live /> by {children}</p>
 );
 
-TimeAgo.propTypes = {
+Timer.propTypes = {
   children: PropTypes.element.isRequired,
 };
 
-export default TimeAgo;
+export default Timer;
