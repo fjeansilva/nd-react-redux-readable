@@ -1,8 +1,12 @@
 import { combineReducers } from 'redux';
-import categoryReducer from '../components/category/reducers';
-import postOrderReducer from '../components/orderby/reducers';
+import categories from '../components/category/reducers';
+import postsOrderBy from '../components/orderby/reducers';
+import posts from '../components/post/reducers';
+import ui from './ui';
 
 export default combineReducers({
-  categories: categoryReducer,
-  postsOrder: postOrderReducer,
+  categories,
+  postsOrderBy,
+  posts,
+  ui,
 });
