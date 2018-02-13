@@ -3,12 +3,12 @@ import {
   FETCH_CATEGORIES_RECEIVE,
   FETCH_CATEGORIES_FAILURE,
 } from '../../constants/ActionsTypes';
-import { getAll } from '../../utils/ReadableAPI';
+import { getCategories } from '../../utils/ReadableAPI';
 
-export function fetchCategories() {
+export default function fetchCategories() {
   return (dispatch) => {
     dispatch({ type: FETCH_CATEGORIES_REQUEST });
-    return getAll()
+    return getCategories()
       .then(data => dispatch({ type: FETCH_CATEGORIES_RECEIVE, payload: data }))
       .catch(err => dispatch({ type: FETCH_CATEGORIES_FAILURE, err }));
   };
