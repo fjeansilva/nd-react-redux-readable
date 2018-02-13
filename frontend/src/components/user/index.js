@@ -1,7 +1,7 @@
 import React from 'react';
 
-const UserInfo = () => (
-  <span className="user__info">Jean Silva</span>
+const User = ({ user }) => (
+  <span className="user__info">{user}</span>
 );
 
-export default UserInfo;
+export default User;
