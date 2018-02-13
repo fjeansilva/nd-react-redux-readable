@@ -5,7 +5,7 @@ import { NavLink, withRouter } from 'react-router-dom';
 const NavItem = ({ url, title, location }) => (
   <li>
     <NavLink
-      to={url.concat(location.search)}
+      to={'/'.concat(url.concat(location.search))}
       className="menu__item"
       activeClassName="menu__item--active"
       isActive={() => location.pathname.replace('/', '') === url}

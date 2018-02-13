@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchCategories } from '../category/actions';
+import fetchCategories from '../category/actions';
+import Spinner from '../spinner';
 import Nav from './index';
 
 class NavContainer extends Component {
@@ -11,7 +12,7 @@ class NavContainer extends Component {
 
   render() {
     const { categories } = this.props;
-    if (!categories) return <span>Loading...</span>;
+    if (!categories) return <Spinner />;
     return (
       <Nav items={categories} />
     );
