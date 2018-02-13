@@ -3,8 +3,12 @@ import { withRouter } from 'react-router-dom';
 import OrderBy from './index';
 import setOrderBy from './actions';
 
+const mapStateToProps = state => ({
+  order: state.postsOrderBy,
+});
+
 const mapDispatchToProps = dispatch => ({
   setOrderBy: value => dispatch(setOrderBy(value)),
 });
 
-export default withRouter(connect(null, mapDispatchToProps)(OrderBy));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(OrderBy));

@@ -6,21 +6,21 @@ import OrderByItem from './OrderByItem';
 const byVotes = '?orderBy=votes';
 const byDate = '?orderBy=date-created';
 
-const OrderBy = ({ location, setOrderBy }) => (
+const OrderBy = ({ location, setOrderBy, order }) => (
   <ul className="actions__orderby">
-    <li className="orderby__item">Ordernar por</li>
+    <li className="orderby__item">Order by:</li>
     <OrderByItem
-      title="votos"
+      title="votes"
       pathname={location.pathname}
       search={byVotes}
-      active={location.search === byVotes}
+      active={order === ORDER_BY_VOTE_SCORE}
       handleClick={() => setOrderBy(ORDER_BY_VOTE_SCORE)}
     />
     <OrderByItem
-      title="data criação"
+      title="date created"
       pathname={location.pathname}
       search={byDate}
-      active={location.search === byDate}
+      active={order === ORDER_BY_DATE_CREATED}
       handleClick={() => setOrderBy(ORDER_BY_DATE_CREATED)}
     />
   </ul>
@@ -29,6 +29,7 @@ const OrderBy = ({ location, setOrderBy }) => (
 OrderBy.propTypes = {
   location: PropTypes.object.isRequired,
   setOrderBy: PropTypes.func.isRequired,
+  order: PropTypes.string.isRequired,
 };
 
 export default OrderBy;
