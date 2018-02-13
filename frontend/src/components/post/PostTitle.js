@@ -2,9 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const PostTitle = ({ text }) => (
-  <a href="/">
-    { text }
-  </a>
+  <span>{ text }</span>
 );
 
 PostTitle.propTypes = {

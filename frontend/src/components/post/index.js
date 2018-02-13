@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Category from '../category';
 import PostSummary from './PostSummary';
 import PostTitle from './PostTitle';
@@ -6,21 +7,26 @@ import PostActions from './PostActions';
 import TimeAgo from '../../utils/TimeAgo';
 import UserInfo from '../user';
 import VoteScore from '../../utils/VoteScore';
+import { Link } from 'react-router-dom';
 
-const title = 'Modern React with Redux - Very impressive course on the topic of React &amp; Redux. This course is not just learning for coding on React framework, but also sharing some of the important concept of refactoring greater construction and specialized knowledge.';
-
-const Post = () => (
+const Post = ({ post }) => (
   <article className="post">
-    <VoteScore />
+    <VoteScore score={post.voteScore} />
     <PostSummary>
-      <Category name="react" />
-      <PostTitle text={title} />
-      <TimeAgo>
-        <UserInfo />
+      <Category name={post.category} />
+      <Link to={`/${post.category}/${post.id}`}>
+        <PostTitle text={post.title} />
+      </Link>
+      <TimeAgo date={post.timestamp}>
+        <UserInfo user={post.author} />
       </TimeAgo>
-      <PostActions />
+      <PostActions commentCount={post.commentCount} />
     </PostSummary>
   </article>
 );
+
+Post.propTypes = {
+  post: PropTypes.object.isRequired,
+};
 
 export default Post;

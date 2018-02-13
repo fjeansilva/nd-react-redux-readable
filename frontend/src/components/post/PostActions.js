@@ -1,14 +1,14 @@
 import React from 'react';
 import Icon from '../../utils/Icon';
 
-const PostActions = () => (
+const PostActions = ({ commentCount }) => (
   <div className="post__actions">
     <a href="/">
       <Icon name="fa-comments-o" />
-      <span> 345 comentário(s)</span>
+      <span> {commentCount} comment(s)</span>
     </a>
-    <a href="/">editar</a>
-    <a href="/">excluir</a>
+    <a href="/">edit</a>
+    <a href="/">delete</a>
   </div>
 );
 
