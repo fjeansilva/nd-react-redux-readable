@@ -11,6 +11,7 @@ if (!token) {
 
 const headers = {
   Authorization: token,
+  'Content-Type': 'application/json',
 };
 
 export const getCategories = () =>
@@ -22,3 +23,9 @@ export const getPosts = () =>
   fetch(`${api}posts`, { headers })
     .then(data => data.json())
     .then(data => data);
+
+export const vote = (id, option) =>
+  fetch(`${api}posts/${id}`, { headers, method: 'POST', body: JSON.stringify({ token, option }) })
+    .then(data => data.json())
+    .then(data => data)
+    .catch(err => err);
