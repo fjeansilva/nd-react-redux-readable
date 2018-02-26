@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import fetchPosts from './actions';
+import { fetchPosts, votePost } from './actions';
 import PostList from './PostList';
 import Spinner from '../spinner';
 import {
@@ -28,17 +28,22 @@ class PostContainer extends Component {
     this.props.fetchPosts();
   }
 
+  handleUpdateVote = (id, vote) => {
+    this.props.votePost(id, vote);
+  }
+
   render() {
     const { isFetching, posts } = this.props;
     if (isFetching) return <Spinner />;
     return (
-      <PostList items={posts} />
+      <PostList items={posts} updateVote={this.handleUpdateVote} />
     );
   }
 }
 
 PostContainer.propTypes = {
   fetchPosts: PropTypes.func.isRequired,
+  votePost: PropTypes.func.isRequired,
   posts: PropTypes.array,
   isFetching: PropTypes.bool.isRequired,
 };
@@ -50,6 +55,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchPosts: category => dispatch(fetchPosts(category)),
+  votePost: (id, vote) => dispatch(votePost(id, vote)),
 });
 
 PostContainer.propTypes = {
