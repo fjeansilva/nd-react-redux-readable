@@ -1,5 +1,6 @@
 import {
   FETCH_POSTS_RECEIVE,
+  POST_VOTE_SCORE,
 } from '../../constants/ActionsTypes';
 
 function postReducer(state = {}, action) {
@@ -10,6 +11,14 @@ function postReducer(state = {}, action) {
         byId: action.posts.reduce((acc, curr) => ({ ...acc, [curr.id]: curr }), {}),
         allIds: action.posts.map(p => p.id),
       };
+    case POST_VOTE_SCORE: {
+      const posts = state.byId;
+      posts[action.post.id].voteScore = action.post.voteScore;
+      return {
+        ...state,
+        byId: posts,
+      };
+    }
     default:
       return state;
   }
