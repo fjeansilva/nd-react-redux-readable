@@ -17,7 +17,7 @@ const NavItem = ({ url, title, location }) => (
 NavItem.propTypes = {
   title: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
-  location: PropTypes.object.isRequired,
+  location: PropTypes.shape({ pathname: PropTypes.string }).isRequired,
 };
 
 export default withRouter(NavItem);
