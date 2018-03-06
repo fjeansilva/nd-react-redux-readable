@@ -27,7 +27,7 @@ const OrderBy = ({ location, setOrderBy, order }) => (
 );
 
 OrderBy.propTypes = {
-  location: PropTypes.object.isRequired,
+  location: PropTypes.shape({ pathName: PropTypes.string }).isRequired,
   setOrderBy: PropTypes.func.isRequired,
   order: PropTypes.string.isRequired,
 };
