@@ -1,11 +1,9 @@
 import React from 'react';
-import Icon from '../../utils/Icon';
+import Logo from '../../utils/Logo';
 
 const Header = () => (
   <header className="header">
-    <div className="header__logo">
-      <Icon name="fa-gg" />
-    </div>
+    <Logo />
   </header>
 );
 
