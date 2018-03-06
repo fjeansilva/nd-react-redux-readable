@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import Post from './index';
 
 const PostList = ({ items, updateVote }) => (
-  <div>
+  <section>
     {items.map(item => <Post key={item.id} post={item} updateVote={updateVote} />)}
-  </div>
+  </section>
 );
 
 PostList.propTypes = {
