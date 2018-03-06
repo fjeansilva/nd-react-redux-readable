@@ -1,9 +1,10 @@
 import {
+  GET_POST,
   FETCH_POSTS_RECEIVE,
   POST_VOTE_SCORE,
 } from '../../constants/ActionsTypes';
 
-function postReducer(state = {}, action) {
+export function posts(state = {}, action) {
   switch (action.type) {
     case FETCH_POSTS_RECEIVE:
       return {
@@ -12,11 +13,11 @@ function postReducer(state = {}, action) {
         allIds: action.posts.map(p => p.id),
       };
     case POST_VOTE_SCORE: {
-      const posts = state.byId;
-      posts[action.post.id].voteScore = action.post.voteScore;
+      const postsList = state.byId;
+      postsList[action.post.id].voteScore = action.post.voteScore;
       return {
         ...state,
-        byId: posts,
+        byId: postsList,
       };
     }
     default:
@@ -24,4 +25,11 @@ function postReducer(state = {}, action) {
   }
 }
 
-export default postReducer;
+export function selectedPost(state = {}, action) {
+  switch (action.type) {
+    case GET_POST:
+      return action.post;
+    default:
+      return state;
+  }
+}
