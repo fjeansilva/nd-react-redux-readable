@@ -24,6 +24,12 @@ export const getPosts = () =>
     .then(data => data.json())
     .then(data => data);
 
+export const getPost = id =>
+  fetch(`${api}posts/${id}`, { headers })
+    .then(data => data.json())
+    .then(data => data)
+    .catch(err => err);
+
 export const vote = (id, option) =>
   fetch(`${api}posts/${id}`, { headers, method: 'POST', body: JSON.stringify({ token, option }) })
     .then(data => data.json())
