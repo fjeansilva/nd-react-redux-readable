@@ -8,9 +8,13 @@ import PostActions from './PostActions';
 import PostInfo from './PostInfo';
 import CommentsList from '../comment/CommentsList';
 
-const PostDetails = ({ post }) => (
+const PostDetails = ({ post, updateVote }) => (
   <section className="post">
-    <VoteScore score={post.voteScore} onUpVote={() => console.log(post.id, 'upVote')} onDownVote={() => console.log(post.id, 'downVote')} />
+    <VoteScore
+      score={post.voteScore}
+      onUpVote={() => updateVote(post.id, 'upVote')}
+      onDownVote={() => updateVote(post.id, 'downVote')}
+    />
     <PostSummary>
       <Category name={post.category} />
       <PostTitle text={post.title} className="post__title" />
@@ -38,6 +42,7 @@ PostDetails.propTypes = {
     author: PropTypes.string.isRequired,
     commentCount: PropTypes.number.isRequired,
   }).isRequired,
+  updateVote: PropTypes.func.isRequired,
 };
 
 export default PostDetails;
