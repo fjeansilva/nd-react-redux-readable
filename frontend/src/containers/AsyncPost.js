@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchPost } from '../components/post/actions';
+import { fetchPost, votePost } from '../components/post/actions';
 import PostDetails from '../components/post/PostDetails';
 
 class AsyncPost extends Component {
@@ -13,11 +13,15 @@ class AsyncPost extends Component {
     }
   }
 
+  handleUpdateVote = (id, vote) => {
+    this.props.votePost(id, vote);
+  }
+
   render() {
     const { post } = this.props;
     if (!post.id) return 'Loading...';
     return (
-      <PostDetails post={this.props.post} />
+      <PostDetails post={this.props.post} updateVote={this.handleUpdateVote} />
     );
   }
 }
@@ -28,6 +32,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchPost: id => dispatch(fetchPost(id)),
+  votePost: (id, vote) => dispatch(votePost(id, vote)),
 });
 
 AsyncPost.propTypes = {
