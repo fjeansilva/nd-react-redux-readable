@@ -1,4 +1,6 @@
 import {
+  FETCH_POST_REQUEST,
+  FETCH_POST_RECEIVE,
   FETCH_POSTS_REQUEST,
   FETCH_POSTS_RECEIVE,
 } from '../constants/ActionsTypes';
