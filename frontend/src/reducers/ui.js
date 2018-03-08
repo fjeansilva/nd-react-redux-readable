@@ -1,6 +1,6 @@
 import {
-  FETCH_POST_REQUEST,
-  FETCH_POST_RECEIVE,
+  FETCH_COMMENTS_REQUEST,
+  FETCH_COMMENTS_RECEIVE,
   FETCH_POSTS_REQUEST,
   FETCH_POSTS_RECEIVE,
 } from '../constants/ActionsTypes';
@@ -24,6 +24,20 @@ function uiReducer(state = initialState, action) {
       return {
         ...state,
         postList: {
+          isFetching: false,
+        },
+      };
+    case FETCH_COMMENTS_REQUEST:
+      return {
+        ...state,
+        commentList: {
+          isFetching: true,
+        },
+      };
+    case FETCH_COMMENTS_RECEIVE:
+      return {
+        ...state,
+        commentList: {
           isFetching: false,
         },
       };
