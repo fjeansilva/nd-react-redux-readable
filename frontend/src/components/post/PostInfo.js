@@ -6,7 +6,7 @@ import CommentInfo from '../comment/CommentInfo';
 
 const PostInfo = ({ date, userName, commentCount }) => (
   <p>
-    Submmited
+    <span>Submmited </span>
     <TimeAgo
       datetime={date}
       live
