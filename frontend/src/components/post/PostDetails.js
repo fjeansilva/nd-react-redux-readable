@@ -8,7 +8,7 @@ import PostActions from './PostActions';
 import PostInfo from './PostInfo';
 import CommentsList from '../comment/CommentsList';
 
-const PostDetails = ({ post, updateVote }) => (
+const PostDetails = ({ post, updateVote, comments }) => (
   <section className="post">
     <VoteScore
       score={post.voteScore}
@@ -28,7 +28,7 @@ const PostDetails = ({ post, updateVote }) => (
       </p>
       <PostActions />
     </PostSummary>
-    <CommentsList />
+    <CommentsList comments={comments} />
   </section>
 );
 
@@ -43,6 +43,7 @@ PostDetails.propTypes = {
     commentCount: PropTypes.number.isRequired,
   }).isRequired,
   updateVote: PropTypes.func.isRequired,
+  comments: PropTypes.array.isRequired,
 };
 
 export default PostDetails;
