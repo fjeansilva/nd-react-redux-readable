@@ -35,3 +35,9 @@ export const vote = (id, option) =>
     .then(data => data.json())
     .then(data => data)
     .catch(err => err);
+
+export const getComments = id => 
+  fetch(`${api}posts/${id}/comments`, { headers })
+    .then(data => data.json())
+    .then(data => data)
+    .catch(err => err);
